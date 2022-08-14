@@ -2,6 +2,11 @@
 name = "try_buf"
 version = "0.1.0"
 edition = "2021"
+description = "This crate provides no-panic API for bytes::Buf"
+readme = "README.md"
+repository = "https://github.com/wheird-lee/try_buf"
+license = "MIT"
+license-file = "LICENSE"
 
 [dependencies]
 paste = "1.0"
