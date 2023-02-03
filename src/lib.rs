@@ -11,7 +11,7 @@
 //!         
 //! let a = bytes.try_get_u16().unwrap();
 //! assert_eq!(a, 0x0102);
-//! 
+//!
 //! let b = bytes.try_get_u32()
 //!     .unwrap_or_else(|e| {
 //!         println!("fail to get u32: {}", e);
@@ -85,7 +85,7 @@ mod test {
     #[test]
     fn test_try_get() {
         let mut bytes = Bytes::from_static(&[1, 2, 3, 4]);
-        
+
         let a = bytes.try_get_u16().unwrap();
         assert_eq!(a, 0x0102);
 
@@ -96,5 +96,8 @@ mod test {
             });
         assert_eq!(b, 0);
         assert_eq!(2, bytes.remaining());
+
+        let c = bytes.try_get_u16().unwrap();
+        assert_eq!(c, 0x0304);
     }
 }

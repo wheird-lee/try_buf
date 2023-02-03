@@ -1,4 +1,3 @@
-
 macro_rules! define_try_get {
     (@def_be $($type: ty)*) => {
         $(
@@ -23,7 +22,7 @@ macro_rules! impl_try_get {
         $crate::paste! {
             fn [<try_get_ $type>](&mut self) -> $crate::Result<$type> {
                 use std::mem::size_of;
-                if self.remaining() > size_of::<u16>() {
+                if self.remaining() >= size_of::<$type>() {
                     $crate::Result::Ok(self.[<get_ $type>]())
                 } else {
                     $crate::Result::Err($crate::ErrorKind::EOF)
@@ -36,7 +35,7 @@ macro_rules! impl_try_get {
         $crate::paste!{
             fn [<try_get_ $type _le>](&mut self) -> $crate::Result<$type> {
                 use std::mem::size_of;
-                if self.remaining() > size_of::<u16>() {
+                if self.remaining() >= size_of::<$type>() {
                     $crate::Result::Ok(self.[<get_ $type _le>]())
                 } else {
                     $crate::Result::Err($crate::ErrorKind::EOF)
