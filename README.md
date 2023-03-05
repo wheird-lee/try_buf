@@ -7,7 +7,7 @@ issues and PRs are welcome.
 
 ```rust
 use bytes::{Bytes, Buf};
-use crate::TryBuf;
+use try_buf::TryBuf;
 
 let mut bytes = Bytes::from_static(&[1, 2, 3, 4]);
 
