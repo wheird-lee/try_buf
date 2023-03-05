@@ -46,7 +46,7 @@ impl std::fmt::Display for ErrorKind {
 
 impl std::error::Error for ErrorKind {}
 
-pub trait TryBuf {
+pub trait TryBuf: Buf {
     define_try_get!(u16 u32 u64 u128 i16 i32 i64 i128 f32 f64);
     define_try_get!(@def_be u8 i8);
 
